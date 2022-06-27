@@ -15,9 +15,9 @@ namespace CinemaInformationSystemRepository.Entities
         public Guid ClientId { get; set; }
         public Client Client { get; set; }
         public List<Client> Clients { get; set; }
-        public Movie(string name, string type, string companyCreated, string showdate, string showTime)
+        public Movie(Guid id, string name, string type, string companyCreated, string showdate, string showTime)
         {
-            Id = Guid.NewGuid();
+            Id = id;
             Name = name;
             Type = type;
             CompanyCreated = companyCreated;

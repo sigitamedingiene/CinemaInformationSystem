@@ -56,6 +56,7 @@
             this.SellTicketButton.TabIndex = 0;
             this.SellTicketButton.Text = "SELL TICKET";
             this.SellTicketButton.UseVisualStyleBackColor = false;
+            this.SellTicketButton.Click += new System.EventHandler(this.SellTicketButton_Click);
             // 
             // label1
             // 

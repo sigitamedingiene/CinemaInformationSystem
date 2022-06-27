@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CinemaInformationSystemRepository.Entities;
+﻿using CinemaInformationSystemRepository.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CinemaInformationSystemRepository.DBContext
