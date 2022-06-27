@@ -30,11 +30,11 @@
         {
             this.SellTicketButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MovieNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.MovieTypeTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.MovieCompanyTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.DatePickerBox = new System.Windows.Forms.DateTimePicker();
             this.TimePickerBox = new System.Windows.Forms.DateTimePicker();
@@ -43,7 +43,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.GenerateReportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SellTicketButton
@@ -67,12 +67,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Movie name.";
             // 
-            // textBox1
+            // MovieNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 23);
-            this.textBox1.TabIndex = 2;
+            this.MovieNameTextBox.Location = new System.Drawing.Point(141, 28);
+            this.MovieNameTextBox.Name = "MovieNameTextBox";
+            this.MovieNameTextBox.Size = new System.Drawing.Size(262, 23);
+            this.MovieNameTextBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -84,12 +84,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Movie type. (Ex. adventure, animation...).";
             // 
-            // textBox2
+            // MovieTypeTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(141, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 23);
-            this.textBox2.TabIndex = 4;
+            this.MovieTypeTextBox.Location = new System.Drawing.Point(141, 72);
+            this.MovieTypeTextBox.Name = "MovieTypeTextBox";
+            this.MovieTypeTextBox.Size = new System.Drawing.Size(262, 23);
+            this.MovieTypeTextBox.TabIndex = 4;
             // 
             // label3
             // 
@@ -101,12 +101,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Company created the movie. (Ex. Walt Disney...).";
             // 
-            // textBox3
+            // MovieCompanyTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 23);
-            this.textBox3.TabIndex = 6;
+            this.MovieCompanyTextBox.Location = new System.Drawing.Point(141, 116);
+            this.MovieCompanyTextBox.Name = "MovieCompanyTextBox";
+            this.MovieCompanyTextBox.Size = new System.Drawing.Size(262, 23);
+            this.MovieCompanyTextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -146,6 +146,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Add new movie";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -188,23 +189,23 @@
             this.checkBox3.Text = "Cinema auditorium report";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // GenerateReportButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(498, 189);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(263, 30);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "Generate report";
-            this.button2.UseVisualStyleBackColor = false;
+            this.GenerateReportButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.GenerateReportButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GenerateReportButton.Location = new System.Drawing.Point(498, 189);
+            this.GenerateReportButton.Name = "GenerateReportButton";
+            this.GenerateReportButton.Size = new System.Drawing.Size(263, 30);
+            this.GenerateReportButton.TabIndex = 17;
+            this.GenerateReportButton.Text = "Generate report";
+            this.GenerateReportButton.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.GenerateReportButton);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -213,11 +214,11 @@
             this.Controls.Add(this.TimePickerBox);
             this.Controls.Add(this.DatePickerBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.MovieCompanyTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.MovieTypeTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MovieNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SellTicketButton);
             this.Name = "MainForm";
@@ -231,11 +232,11 @@
 
         private System.Windows.Forms.Button SellTicketButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MovieNameTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox MovieTypeTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox MovieCompanyTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker DatePickerBox;
         private System.Windows.Forms.DateTimePicker TimePickerBox;
@@ -244,6 +245,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button GenerateReportButton;
     }
 }
