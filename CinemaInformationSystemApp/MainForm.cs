@@ -12,8 +12,7 @@ namespace CinemaInformationSystemApp
 
         public MainForm()
         {
-            InitializeComponent();
-            var Id = Guid.NewGuid();            
+            InitializeComponent();          
             DbData dbData = new(cinemaDbContext);
             dbData.AddDbMovieData();
             dbData.AddDbClientData();
@@ -28,7 +27,11 @@ namespace CinemaInformationSystemApp
             var date = DatePickerBox.Value.Date.ToShortDateString();
             var time = TimePickerBox.Value.ToShortTimeString();
             Movie movie = new Movie(Id, name, type, company, date, time);
+            int auitoriumNumber = Convert.ToInt32(AuditoriumNumberTextBox.Text);
+            string auditoriumAdress = AuditoriumAdressComboBox.Text;//neuzbaigta is DB reikia susideti auditorijos adresus i combo box
+            var auditoriumId = AuditoriumIdTextBox.Text;
             cinemaDbContext.Add(movie);
+            cinemaDbContext.Add(auditoriumId);
             cinemaDbContext.SaveChanges();
         }
         private void SellTicketButton_Click(object sender, EventArgs e)
