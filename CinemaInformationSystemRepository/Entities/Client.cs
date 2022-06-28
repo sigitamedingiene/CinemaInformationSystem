@@ -22,5 +22,9 @@ namespace CinemaInformationSystemRepository.Entities
             Email = email;
             WachedMovies = new List<Movie>();
         }
+        private Client()
+        {
+
+        }
     }
 }

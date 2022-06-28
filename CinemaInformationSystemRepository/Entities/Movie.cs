@@ -12,9 +12,6 @@ namespace CinemaInformationSystemRepository.Entities
         public string CompanyCreated { get; set; }
         public string ShowDate { get; set; }
         public string ShowTime { get; set; }
-        public Guid ClientId { get; set; }
-        public Client Client { get; set; }
-        public List<Client> Clients { get; set; }
         public Movie(Guid id, string name, string type, string companyCreated, string showdate, string showTime)
         {
             Id = id;
@@ -22,8 +19,11 @@ namespace CinemaInformationSystemRepository.Entities
             Type = type;
             CompanyCreated = companyCreated;
             ShowDate = showdate;
-            ShowTime = showTime;
-            Clients = new List<Client>();            
+            ShowTime = showTime;           
+        }
+        private Movie()
+        {
+
         }
     }
 }

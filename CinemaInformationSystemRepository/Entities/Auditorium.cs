@@ -17,6 +17,7 @@ namespace CinemaInformationSystemRepository.Entities
         public Guid MovieId { get; set; }
         public Movie Movie { get; set; }
         public List<Movie> ShowedMovies { get; set; }
+        public List<Client> Clients { get; set; }
 
         public Auditorium(int number, string owner, string city, string adress, int placeCount, int rowsCount, int rowSeatCount)
         {
@@ -29,7 +30,11 @@ namespace CinemaInformationSystemRepository.Entities
             RowsCount = rowsCount;
             RowSeatCount = rowSeatCount;
             ShowedMovies = new List<Movie>();
-            
+            Clients = new List<Client>();            
+        }
+        private Auditorium()
+        {
+
         }
     }
 }

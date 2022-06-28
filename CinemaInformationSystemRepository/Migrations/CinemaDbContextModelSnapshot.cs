@@ -43,6 +43,12 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<int>("PlaceCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("RowSeatCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RowsCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
@@ -59,11 +65,11 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<decimal>("Age")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid?>("AuditoriumId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -73,7 +79,7 @@ namespace CinemaInformationSystemRepository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("AuditoriumId");
 
                     b.ToTable("Clients");
                 });
@@ -87,7 +93,7 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<Guid?>("AuditoriumId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ClientId")
+                    b.Property<Guid?>("ClientId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CompanyCreated")
@@ -96,8 +102,11 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ShowTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ShowDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShowTime")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -124,13 +133,9 @@ namespace CinemaInformationSystemRepository.Migrations
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Client", b =>
                 {
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Movie", "Movie")
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Auditorium", null)
                         .WithMany("Clients")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
+                        .HasForeignKey("AuditoriumId");
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Movie", b =>
@@ -139,28 +144,21 @@ namespace CinemaInformationSystemRepository.Migrations
                         .WithMany("ShowedMovies")
                         .HasForeignKey("AuditoriumId");
 
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Client", "Client")
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Client", null)
                         .WithMany("WachedMovies")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
+                        .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Auditorium", b =>
                 {
+                    b.Navigation("Clients");
+
                     b.Navigation("ShowedMovies");
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Client", b =>
                 {
                     b.Navigation("WachedMovies");
-                });
-
-            modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Movie", b =>
-                {
-                    b.Navigation("Clients");
                 });
 #pragma warning restore 612, 618
         }

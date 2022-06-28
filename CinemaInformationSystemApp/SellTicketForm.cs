@@ -17,7 +17,7 @@ namespace CinemaInformationSystemApp
 
         private void ChoosePlacesButton_Click(object sender, EventArgs e)
         {
-            void DrawCinemaSeats(Graphics g)
+            /*void DrawCinemaSeats(Graphics g)
         {
             bool[,] seats = new bool[, auditorium.RowsCount];
             const int size = 16;
@@ -34,7 +34,7 @@ namespace CinemaInformationSystemApp
                     g.FillRectangle(brush, i * (size + space), j * (size + space), size, size);
                 }
             }
-        }
+        }*/
     }
     }
 }
