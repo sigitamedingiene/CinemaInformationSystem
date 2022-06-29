@@ -13,10 +13,6 @@ namespace CinemaInformationSystemApp
         public MainForm()
         {
             InitializeComponent();          
-            DbData dbData = new(cinemaDbContext);
-            dbData.AddDbMovieData();
-            dbData.AddDbClientData();
-            dbData.AddDbAuditoriumData();
         }
         private void button1_Click(object sender, EventArgs e)
         {
