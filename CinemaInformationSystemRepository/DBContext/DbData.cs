@@ -13,7 +13,7 @@ namespace CinemaInformationSystemRepository.DBContext
         public void AddDbMovieData()
         {
             var Id = Guid.NewGuid();
-            Movie movie = new Movie(Id, "Cinderella", "Animation", "Walt Disney", "2022-06-30", "16:00");
+            Movie movie = new Movie("Cinderella", "Animation", "Walt Disney", "2022-06-30", "16:00");
             _cinemaDbContext.Add(movie);
             _cinemaDbContext.SaveChanges();
         }

@@ -31,7 +31,10 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("MovieId")
+                    b.Property<Guid?>("ClientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("MovieId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Number")
@@ -51,6 +54,8 @@ namespace CinemaInformationSystemRepository.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientId");
+
                     b.HasIndex("MovieId");
 
                     b.ToTable("Auditoriums");
@@ -65,9 +70,6 @@ namespace CinemaInformationSystemRepository.Migrations
                     b.Property<decimal>("Age")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("AuditoriumId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -79,8 +81,6 @@ namespace CinemaInformationSystemRepository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuditoriumId");
-
                     b.ToTable("Clients");
                 });
 
@@ -88,12 +88,6 @@ namespace CinemaInformationSystemRepository.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("AuditoriumId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ClientId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CompanyCreated")
@@ -113,52 +107,58 @@ namespace CinemaInformationSystemRepository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuditoriumId");
-
-                    b.HasIndex("ClientId");
-
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("ClientMovie", b =>
+                {
+                    b.Property<Guid>("ClientsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("WachedMoviesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ClientsId", "WachedMoviesId");
+
+                    b.HasIndex("WachedMoviesId");
+
+                    b.ToTable("ClientMovie");
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Auditorium", b =>
                 {
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Movie", "Movie")
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Client", null)
+                        .WithMany("UsedAuditoriums")
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Movie", null)
+                        .WithMany("Auditorium")
+                        .HasForeignKey("MovieId");
+                });
+
+            modelBuilder.Entity("ClientMovie", b =>
+                {
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Client", null)
                         .WithMany()
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("ClientsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Movie");
+                    b.HasOne("CinemaInformationSystemRepository.Entities.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("WachedMoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Client", b =>
                 {
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Auditorium", null)
-                        .WithMany("Clients")
-                        .HasForeignKey("AuditoriumId");
+                    b.Navigation("UsedAuditoriums");
                 });
 
             modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Movie", b =>
                 {
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Auditorium", null)
-                        .WithMany("ShowedMovies")
-                        .HasForeignKey("AuditoriumId");
-
-                    b.HasOne("CinemaInformationSystemRepository.Entities.Client", null)
-                        .WithMany("WachedMovies")
-                        .HasForeignKey("ClientId");
-                });
-
-            modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Auditorium", b =>
-                {
-                    b.Navigation("Clients");
-
-                    b.Navigation("ShowedMovies");
-                });
-
-            modelBuilder.Entity("CinemaInformationSystemRepository.Entities.Client", b =>
-                {
-                    b.Navigation("WachedMovies");
+                    b.Navigation("Auditorium");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,34 +1,58 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using CinemaInformationSystemRepository.DBContext;
+using CinemaInformationSystemBusiness.Services;
 using CinemaInformationSystemRepository.Entities;
 
 namespace CinemaInformationSystemApp
 {
     public partial class MainForm : Form
-    {
-        CinemaDbContext cinemaDbContext = new();
+    {   AddNewDataToDb addNewDataToDb = new AddNewDataToDb();
+        GetDataFromDbToList getDataFromDbToList = new GetDataFromDbToList();
         
-
         public MainForm()
         {
             InitializeComponent();          
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void SearchAuditoriumAdressButton_Click(object sender, EventArgs e)
+        {   List<Auditorium> auditoriumAdresses = new List<Auditorium>();
+            string cityName = CityNameTextBox.Text;
+            auditoriumAdresses = getDataFromDbToList.GetAllAuditoriumAdressListByCity(cityName);
+            if (CityNameTextBox.Text == cityName)
+            {
+                for (int i = 0; i < auditoriumAdresses.Count; i++)
+                {
+                    AuditoriumAdressComboBox.Items.Add(auditoriumAdresses[i].Adress);
+                    AuditoriumIdTextBox.AppendText($"{auditoriumAdresses[i].Id}");
+                }
+            }else
+            {
+                MessageBox.Show("Add new auditorium data.");
+            }
+            
+        }
+        private void AddNewAuditorium_Click(object sender, EventArgs e)
         {
+            var Id = Guid.NewGuid();
+            int number = Convert.ToInt32(AuditoriumNumberBox.Text);
+            string owner = AuditoriumOwnerTextBox.Text;
+            string city = CityTextBox.Text;
+            string adress = AuditoriumAdressTextBox.Text;
+            int placeCount = Convert.ToInt32(AuditoriumPlaceCountTextBox.Text);
+            int rowsCount = Convert.ToInt32(AuditoriumRowsCountTextBox.Text);
+            int rowSeatCount = Convert.ToInt32(AuditoriumSeatsInRowCountTextBox.Text);
+            addNewDataToDb.AddNewAuditorium(number, owner, city, adress, placeCount, rowsCount, rowSeatCount);
+
+        }
+        private void AddNewMovieButton_Click(object sender, EventArgs e)
+        {   
             var Id = Guid.NewGuid();
             string name = MovieNameTextBox.Text;
             string type = MovieTypeTextBox.Text;
             string company = MovieCompanyTextBox.Text;
             var date = DatePickerBox.Value.Date.ToShortDateString();
             var time = TimePickerBox.Value.ToShortTimeString();
-            Movie movie = new Movie(Id, name, type, company, date, time);
-            int auitoriumNumber = Convert.ToInt32(AuditoriumNumberTextBox.Text);
-            string auditoriumAdress = AuditoriumAdressComboBox.Text;//neuzbaigta is DB reikia susideti auditorijos adresus i combo box
-            var auditoriumId = AuditoriumIdTextBox.Text;
-            cinemaDbContext.Add(movie);
-            cinemaDbContext.Add(auditoriumId);
-            cinemaDbContext.SaveChanges();
+            //addNewDataToDb.AddNewMovie(name, type, company, date, time, auditorium, cleint);
         }
         private void SellTicketButton_Click(object sender, EventArgs e)
         {

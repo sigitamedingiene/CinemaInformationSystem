@@ -12,7 +12,7 @@ namespace CinemaInformationSystemRepository.Entities
         public decimal Age { get; set; }
         public string Email { get; set; }
         public List<Movie> WachedMovies { get; set; }
-
+        public List<Auditorium> UsedAuditoriums { get; set; }
         public Client(string name, string surName, decimal age, string email)
         {
             Id = Guid.NewGuid();
@@ -21,6 +21,7 @@ namespace CinemaInformationSystemRepository.Entities
             Age = age;
             Email = email;
             WachedMovies = new List<Movie>();
+            UsedAuditoriums = new List<Auditorium>();
         }
         private Client()
         {

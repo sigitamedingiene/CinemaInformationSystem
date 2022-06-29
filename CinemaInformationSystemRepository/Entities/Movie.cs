@@ -12,14 +12,18 @@ namespace CinemaInformationSystemRepository.Entities
         public string CompanyCreated { get; set; }
         public string ShowDate { get; set; }
         public string ShowTime { get; set; }
-        public Movie(Guid id, string name, string type, string companyCreated, string showdate, string showTime)
+        public List<Auditorium> Auditorium { get; set; }
+        public List<Client> Clients { get; set; }
+        public Movie(string name, string type, string companyCreated, string showdate, string showTime)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
             Type = type;
             CompanyCreated = companyCreated;
             ShowDate = showdate;
-            ShowTime = showTime;           
+            ShowTime = showTime;
+            Auditorium = new List<Auditorium>();
+            Clients = new List<Client>();
         }
         private Movie()
         {

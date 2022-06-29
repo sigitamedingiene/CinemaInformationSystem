@@ -7,25 +7,25 @@ namespace CinemaInformationSystemBusiness.Services
     public class AddNewDataToDb
     {   
         CinemaDbContext cinemaDbContext = new CinemaDbContext();
-        public void AddNewAuditorium(int number, string owner, string city, string adress, int placeCount, int rowsCount, int rowSeatCount, Movie movie, Client client)
+        public void AddNewAuditorium(int number, string owner, string city, string adress, int placeCount, int rowsCount, int rowSeatCount)
         {
             Auditorium newAuditorium = new(number, owner, city, adress, placeCount, rowsCount, rowSeatCount);
-            newAuditorium.ShowedMovies.Add(movie);
-            newAuditorium.Clients.Add(client);
             cinemaDbContext.Add(newAuditorium);
             cinemaDbContext.SaveChanges();
         }
-        public void AddNewClient(string name, string surName, decimal age, string email, Movie movie)
+        public void AddNewClient(string name, string surName, decimal age, string email, Auditorium auditorium)
         {
             Client newClient = new(name, surName, age, email);
-            newClient.WachedMovies.Add(movie);
+            newClient.UsedAuditoriums.Add(auditorium);
             cinemaDbContext.Clients.Add(newClient);
             cinemaDbContext.SaveChanges();
         }
-        public void AddNewMovie(Guid id, string name, string type, string companyCreated, string showdate, string showTime)
+        public void AddNewMovie(string name, string type, string companyCreated, string showdate, string showTime, Auditorium auditorium, Client client)
         {
-            Movie newMovie = new(id, name, type, companyCreated, showdate, showTime);
+            Movie newMovie = new(name, type, companyCreated, showdate, showTime);
             cinemaDbContext.Add(newMovie);
+            cinemaDbContext.Auditoriums.Add(auditorium);
+            cinemaDbContext.Clients.Add(client);
             cinemaDbContext.SaveChanges();
         }
     }

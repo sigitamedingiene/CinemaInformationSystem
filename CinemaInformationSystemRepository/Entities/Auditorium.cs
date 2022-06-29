@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 
 namespace CinemaInformationSystemRepository.Entities
@@ -14,11 +13,6 @@ namespace CinemaInformationSystemRepository.Entities
         public int PlaceCount { get; set; }
         public int RowsCount { get; set; }
         public int RowSeatCount { get; set; }
-        public Guid MovieId { get; set; }
-        public Movie Movie { get; set; }
-        public List<Movie> ShowedMovies { get; set; }
-        public List<Client> Clients { get; set; }
-
         public Auditorium(int number, string owner, string city, string adress, int placeCount, int rowsCount, int rowSeatCount)
         {
             Id = Guid.NewGuid();
@@ -29,8 +23,6 @@ namespace CinemaInformationSystemRepository.Entities
             PlaceCount = placeCount;
             RowsCount = rowsCount;
             RowSeatCount = rowSeatCount;
-            ShowedMovies = new List<Movie>();
-            Clients = new List<Client>();            
         }
         private Auditorium()
         {
