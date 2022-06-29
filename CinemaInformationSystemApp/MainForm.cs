@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using CinemaInformationSystemBusiness.Services;
+using CinemaInformationSystemRepository.DBContext;
 using CinemaInformationSystemRepository.Entities;
 
 namespace CinemaInformationSystemApp
@@ -9,10 +10,24 @@ namespace CinemaInformationSystemApp
     public partial class MainForm : Form
     {   AddNewDataToDb addNewDataToDb = new AddNewDataToDb();
         GetDataFromDbToList getDataFromDbToList = new GetDataFromDbToList();
-        
+
         public MainForm()
         {
-            InitializeComponent();          
+            InitializeComponent();
+        }
+        private void AddNewMovieButton_Click(object sender, EventArgs e)
+        {
+            var Id = Guid.NewGuid();
+            string name = MovieNameTextBox.Text;
+            string type = MovieTypeTextBox.Text;
+            string company = MovieCompanyTextBox.Text;
+            var date = DatePickerBox.Value.Date.ToShortDateString();
+            var time = TimePickerBox.Value.ToShortTimeString();
+            addNewDataToDb.AddNewMovie(name, type, company, date, time);
+            MovieNameTextBox.Clear();
+            MovieTypeTextBox.Clear();
+            MovieCompanyTextBox.Clear();
+            MessageBox.Show("Movie added succesfully");
         }
         private void SearchAuditoriumAdressButton_Click(object sender, EventArgs e)
         {   List<Auditorium> auditoriumAdresses = new List<Auditorium>();
@@ -43,16 +58,6 @@ namespace CinemaInformationSystemApp
             int rowSeatCount = Convert.ToInt32(AuditoriumSeatsInRowCountTextBox.Text);
             addNewDataToDb.AddNewAuditorium(number, owner, city, adress, placeCount, rowsCount, rowSeatCount);
 
-        }
-        private void AddNewMovieButton_Click(object sender, EventArgs e)
-        {   
-            var Id = Guid.NewGuid();
-            string name = MovieNameTextBox.Text;
-            string type = MovieTypeTextBox.Text;
-            string company = MovieCompanyTextBox.Text;
-            var date = DatePickerBox.Value.Date.ToShortDateString();
-            var time = TimePickerBox.Value.ToShortTimeString();
-            //addNewDataToDb.AddNewMovie(name, type, company, date, time, auditorium, cleint);
         }
         private void SellTicketButton_Click(object sender, EventArgs e)
         {

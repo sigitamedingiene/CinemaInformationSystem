@@ -13,19 +13,19 @@ namespace CinemaInformationSystemRepository.DBContext
         public void AddDbMovieData()
         {
             var Id = Guid.NewGuid();
-            Movie movie = new Movie("Cinderella", "Animation", "Walt Disney", "2022-06-30", "16:00");
+            Movie movie = new Movie("Aladin", "Animation", "Walt Disney", "2022-07-01", "14:20");
             _cinemaDbContext.Add(movie);
             _cinemaDbContext.SaveChanges();
         }
         public void AddDbClientData()
         {
-            Client client = new Client("Sigita", "Vardene", 17, "vardene@gmail.com");
+            Client client = new Client("Sigita", "Medingiene", 28, "sigita@gmail.com");
             _cinemaDbContext.Add(client);           
             _cinemaDbContext.SaveChanges();
         }
         public void AddDbAuditoriumData()
         {   
-            Auditorium auditorium1 = new Auditorium(1, "Forum Cinema", "Klaipeda", "Taikos pr. 64", 250, 10, 25);
+            Auditorium auditorium1 = new Auditorium(2, "Forum Cinema", "Klaipeda", "Taikos pr. 64", 150, 10, 15);
             _cinemaDbContext.Add(auditorium1);          
             _cinemaDbContext.SaveChanges();
         }
