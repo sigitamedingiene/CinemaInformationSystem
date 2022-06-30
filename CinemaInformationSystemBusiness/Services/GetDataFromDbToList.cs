@@ -10,7 +10,7 @@ namespace CinemaInformationSystemBusiness.Services
     {   CinemaDbContext cinemaDbContext = new CinemaDbContext();
         public List<Auditorium> GetAllAuditoriumAdressListByCity(string City)
         {
-            return cinemaDbContext.Auditoriums.Where(auditorium => auditorium.Adress == City).ToList();
+            return cinemaDbContext.Auditoriums.Where(auditoriums => auditoriums.City == City).ToList();
         }
         
         

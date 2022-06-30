@@ -8,16 +8,15 @@ using CinemaInformationSystemRepository.Entities;
 namespace CinemaInformationSystemApp
 {
     public partial class MainForm : Form
-    {   AddNewDataToDb addNewDataToDb = new AddNewDataToDb();
+    {   CinemaDbContext context = new CinemaDbContext();
+        AddNewDataToDb addNewDataToDb = new AddNewDataToDb();
         GetDataFromDbToList getDataFromDbToList = new GetDataFromDbToList();
-
         public MainForm()
         {
             InitializeComponent();
         }
         private void AddNewMovieButton_Click(object sender, EventArgs e)
         {
-            var Id = Guid.NewGuid();
             string name = MovieNameTextBox.Text;
             string type = MovieTypeTextBox.Text;
             string company = MovieCompanyTextBox.Text;
@@ -30,21 +29,18 @@ namespace CinemaInformationSystemApp
             MessageBox.Show("Movie added succesfully");
         }
         private void SearchAuditoriumAdressButton_Click(object sender, EventArgs e)
-        {   List<Auditorium> auditoriumAdresses = new List<Auditorium>();
+        {
+            _ = new List<Auditorium>();
             string cityName = CityNameTextBox.Text;
-            auditoriumAdresses = getDataFromDbToList.GetAllAuditoriumAdressListByCity(cityName);
-            if (CityNameTextBox.Text == cityName)
+            List<Auditorium> auditoriumAdresses = getDataFromDbToList.GetAllAuditoriumAdressListByCity(cityName);
+            for (int i = 0; i < auditoriumAdresses.Count; i++)
             {
-                for (int i = 0; i < auditoriumAdresses.Count; i++)
-                {
-                    AuditoriumAdressComboBox.Items.Add(auditoriumAdresses[i].Adress);
-                    AuditoriumIdTextBox.AppendText($"{auditoriumAdresses[i].Id}");
-                }
-            }else
-            {
-                MessageBox.Show("Add new auditorium data.");
+                AuditoriumAdressComboBox.Items.Add($"{auditoriumAdresses[i].Adress}, auditorium number {auditoriumAdresses[i].Number}");
             }
-            
+        }
+        private void AddNewMovieIdToAuditoriumDataBaseButton_Click(object sender, EventArgs e)
+        {
+
         }
         private void AddNewAuditorium_Click(object sender, EventArgs e)
         {

@@ -48,7 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.AuditoriumAdressComboBox = new System.Windows.Forms.ComboBox();
-            this.AuditoriumIdTextBox = new System.Windows.Forms.TextBox();
+            this.NewMovieIdTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.CityNameTextBox = new System.Windows.Forms.TextBox();
             this.SearchAuditoriumAdressButton = new System.Windows.Forms.Button();
@@ -67,6 +67,7 @@
             this.AuditoriumRowsCountTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.AuditoriumSeatsInRowCountTextBox = new System.Windows.Forms.TextBox();
+            this.AddNewMovieIdToAuditoriumDataBaseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SellTicketButton
@@ -169,11 +170,11 @@
             // AddNewMovieButton
             // 
             this.AddNewMovieButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AddNewMovieButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.AddNewMovieButton.Location = new System.Drawing.Point(157, 499);
+            this.AddNewMovieButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddNewMovieButton.Location = new System.Drawing.Point(161, 251);
             this.AddNewMovieButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewMovieButton.Name = "AddNewMovieButton";
-            this.AddNewMovieButton.Size = new System.Drawing.Size(301, 40);
+            this.AddNewMovieButton.Size = new System.Drawing.Size(237, 40);
             this.AddNewMovieButton.TabIndex = 10;
             this.AddNewMovieButton.Text = "Add new movie";
             this.AddNewMovieButton.UseVisualStyleBackColor = false;
@@ -226,7 +227,7 @@
             // GenerateReportButton
             // 
             this.GenerateReportButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.GenerateReportButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GenerateReportButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.GenerateReportButton.Location = new System.Drawing.Point(997, 499);
             this.GenerateReportButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GenerateReportButton.Name = "GenerateReportButton";
@@ -237,7 +238,7 @@
             // 
             // AuditoriumNumberTextBox
             // 
-            this.AuditoriumNumberTextBox.Location = new System.Drawing.Point(161, 434);
+            this.AuditoriumNumberTextBox.Location = new System.Drawing.Point(750, 9);
             this.AuditoriumNumberTextBox.Name = "AuditoriumNumberTextBox";
             this.AuditoriumNumberTextBox.Size = new System.Drawing.Size(159, 27);
             this.AuditoriumNumberTextBox.TabIndex = 18;
@@ -246,17 +247,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(161, 412);
+            this.label5.Location = new System.Drawing.Point(161, 310);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 19);
+            this.label5.Size = new System.Drawing.Size(113, 19);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Auditorium number.";
+            this.label5.Text = "New movie ID";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(161, 320);
+            this.label7.Location = new System.Drawing.Point(161, 424);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(153, 19);
             this.label7.TabIndex = 20;
@@ -264,26 +265,28 @@
             // 
             // AuditoriumAdressComboBox
             // 
+            this.AuditoriumAdressComboBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.AuditoriumAdressComboBox.FormattingEnabled = true;
-            this.AuditoriumAdressComboBox.Location = new System.Drawing.Point(161, 346);
+            this.AuditoriumAdressComboBox.Location = new System.Drawing.Point(161, 446);
             this.AuditoriumAdressComboBox.Name = "AuditoriumAdressComboBox";
             this.AuditoriumAdressComboBox.Size = new System.Drawing.Size(364, 28);
             this.AuditoriumAdressComboBox.TabIndex = 21;
+            this.AuditoriumAdressComboBox.Text = "Choose adress...";
             // 
-            // AuditoriumIdTextBox
+            // NewMovieIdTextBox
             // 
-            this.AuditoriumIdTextBox.Location = new System.Drawing.Point(161, 381);
-            this.AuditoriumIdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.AuditoriumIdTextBox.Name = "AuditoriumIdTextBox";
-            this.AuditoriumIdTextBox.ReadOnly = true;
-            this.AuditoriumIdTextBox.Size = new System.Drawing.Size(364, 27);
-            this.AuditoriumIdTextBox.TabIndex = 22;
+            this.NewMovieIdTextBox.Location = new System.Drawing.Point(161, 333);
+            this.NewMovieIdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.NewMovieIdTextBox.Name = "NewMovieIdTextBox";
+            this.NewMovieIdTextBox.ReadOnly = true;
+            this.NewMovieIdTextBox.Size = new System.Drawing.Size(364, 27);
+            this.NewMovieIdTextBox.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(161, 266);
+            this.label8.Location = new System.Drawing.Point(161, 369);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(143, 19);
             this.label8.TabIndex = 23;
@@ -291,20 +294,20 @@
             // 
             // CityNameTextBox
             // 
-            this.CityNameTextBox.Location = new System.Drawing.Point(161, 289);
+            this.CityNameTextBox.Location = new System.Drawing.Point(161, 393);
             this.CityNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CityNameTextBox.Name = "CityNameTextBox";
-            this.CityNameTextBox.Size = new System.Drawing.Size(237, 27);
+            this.CityNameTextBox.Size = new System.Drawing.Size(185, 27);
             this.CityNameTextBox.TabIndex = 24;
             // 
             // SearchAuditoriumAdressButton
             // 
             this.SearchAuditoriumAdressButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SearchAuditoriumAdressButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchAuditoriumAdressButton.Location = new System.Drawing.Point(421, 252);
+            this.SearchAuditoriumAdressButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.SearchAuditoriumAdressButton.Location = new System.Drawing.Point(352, 369);
             this.SearchAuditoriumAdressButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchAuditoriumAdressButton.Name = "SearchAuditoriumAdressButton";
-            this.SearchAuditoriumAdressButton.Size = new System.Drawing.Size(104, 91);
+            this.SearchAuditoriumAdressButton.Size = new System.Drawing.Size(173, 67);
             this.SearchAuditoriumAdressButton.TabIndex = 25;
             this.SearchAuditoriumAdressButton.Text = "Search auditorium adress";
             this.SearchAuditoriumAdressButton.UseVisualStyleBackColor = false;
@@ -313,7 +316,7 @@
             // AddNewAuditorium
             // 
             this.AddNewAuditorium.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AddNewAuditorium.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddNewAuditorium.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddNewAuditorium.Location = new System.Drawing.Point(589, 499);
             this.AddNewAuditorium.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewAuditorium.Name = "AddNewAuditorium";
@@ -449,11 +452,25 @@
             this.AuditoriumSeatsInRowCountTextBox.Size = new System.Drawing.Size(55, 27);
             this.AuditoriumSeatsInRowCountTextBox.TabIndex = 40;
             // 
+            // AddNewMovieIdToAuditoriumDataBaseButton
+            // 
+            this.AddNewMovieIdToAuditoriumDataBaseButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Location = new System.Drawing.Point(161, 499);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Name = "AddNewMovieIdToAuditoriumDataBaseButton";
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Size = new System.Drawing.Size(364, 40);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.TabIndex = 41;
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Text = "Add new movie to auditorium database";
+            this.AddNewMovieIdToAuditoriumDataBaseButton.UseVisualStyleBackColor = false;
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Click += new System.EventHandler(this.AddNewMovieIdToAuditoriumDataBaseButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 600);
+            this.Controls.Add(this.AddNewMovieIdToAuditoriumDataBaseButton);
             this.Controls.Add(this.AuditoriumSeatsInRowCountTextBox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.AuditoriumRowsCountTextBox);
@@ -472,7 +489,7 @@
             this.Controls.Add(this.SearchAuditoriumAdressButton);
             this.Controls.Add(this.CityNameTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.AuditoriumIdTextBox);
+            this.Controls.Add(this.NewMovieIdTextBox);
             this.Controls.Add(this.AuditoriumAdressComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -523,7 +540,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox AuditoriumAdressComboBox;
-        private System.Windows.Forms.TextBox AuditoriumIdTextBox;
+        private System.Windows.Forms.TextBox NewMovieIdTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox CityNameTextBox;
         private System.Windows.Forms.Button SearchAuditoriumAdressButton;
@@ -542,5 +559,6 @@
         private System.Windows.Forms.TextBox AuditoriumRowsCountTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox AuditoriumSeatsInRowCountTextBox;
+        private System.Windows.Forms.Button AddNewMovieIdToAuditoriumDataBaseButton;
     }
 }
