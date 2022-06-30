@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace CinemaInformationSystemBusiness.Services
 {
     public class SellTicket
     {
+        public decimal CountPrice(decimal price, decimal count)
+        {
+            return price * count;
+        }
     }
 }

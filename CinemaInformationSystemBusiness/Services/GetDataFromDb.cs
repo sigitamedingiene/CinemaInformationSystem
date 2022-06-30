@@ -17,5 +17,9 @@ namespace CinemaInformationSystemBusiness.Services
         {
             return cinemaDbContext.Movies.ToList();
         }
+        public List<Auditorium> GetAllAuditorium()
+        {
+            return cinemaDbContext.Auditoriums.ToList();
+        }
     }
 }
