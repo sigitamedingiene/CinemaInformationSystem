@@ -44,7 +44,6 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.GenerateReportButton = new System.Windows.Forms.Button();
-            this.AuditoriumNumberTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.AuditoriumAdressComboBox = new System.Windows.Forms.ComboBox();
@@ -68,16 +67,18 @@
             this.label15 = new System.Windows.Forms.Label();
             this.AuditoriumSeatsInRowCountTextBox = new System.Windows.Forms.TextBox();
             this.AddNewMovieIdToAuditoriumDataBaseButton = new System.Windows.Forms.Button();
+            this.AllMovieListComboBox = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SellTicketButton
             // 
             this.SellTicketButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SellTicketButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SellTicketButton.Location = new System.Drawing.Point(14, 37);
+            this.SellTicketButton.Location = new System.Drawing.Point(12, 116);
             this.SellTicketButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SellTicketButton.Name = "SellTicketButton";
-            this.SellTicketButton.Size = new System.Drawing.Size(114, 484);
+            this.SellTicketButton.Size = new System.Drawing.Size(114, 318);
             this.SellTicketButton.TabIndex = 0;
             this.SellTicketButton.Text = "SELL TICKET";
             this.SellTicketButton.UseVisualStyleBackColor = false;
@@ -171,10 +172,10 @@
             // 
             this.AddNewMovieButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddNewMovieButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddNewMovieButton.Location = new System.Drawing.Point(161, 251);
+            this.AddNewMovieButton.Location = new System.Drawing.Point(161, 248);
             this.AddNewMovieButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewMovieButton.Name = "AddNewMovieButton";
-            this.AddNewMovieButton.Size = new System.Drawing.Size(237, 40);
+            this.AddNewMovieButton.Size = new System.Drawing.Size(364, 40);
             this.AddNewMovieButton.TabIndex = 10;
             this.AddNewMovieButton.Text = "Add new movie";
             this.AddNewMovieButton.UseVisualStyleBackColor = false;
@@ -184,7 +185,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(997, 337);
+            this.label6.Location = new System.Drawing.Point(955, 423);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(177, 23);
             this.label6.TabIndex = 13;
@@ -193,7 +194,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(997, 369);
+            this.checkBox1.Location = new System.Drawing.Point(955, 450);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(120, 24);
@@ -205,7 +206,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(997, 410);
+            this.checkBox2.Location = new System.Drawing.Point(955, 482);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(117, 24);
@@ -216,7 +217,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(997, 453);
+            this.checkBox3.Location = new System.Drawing.Point(955, 514);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(203, 24);
@@ -228,36 +229,29 @@
             // 
             this.GenerateReportButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.GenerateReportButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GenerateReportButton.Location = new System.Drawing.Point(997, 499);
+            this.GenerateReportButton.Location = new System.Drawing.Point(955, 547);
             this.GenerateReportButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GenerateReportButton.Name = "GenerateReportButton";
-            this.GenerateReportButton.Size = new System.Drawing.Size(301, 40);
+            this.GenerateReportButton.Size = new System.Drawing.Size(231, 40);
             this.GenerateReportButton.TabIndex = 17;
             this.GenerateReportButton.Text = "Generate report";
             this.GenerateReportButton.UseVisualStyleBackColor = false;
-            // 
-            // AuditoriumNumberTextBox
-            // 
-            this.AuditoriumNumberTextBox.Location = new System.Drawing.Point(750, 9);
-            this.AuditoriumNumberTextBox.Name = "AuditoriumNumberTextBox";
-            this.AuditoriumNumberTextBox.Size = new System.Drawing.Size(159, 27);
-            this.AuditoriumNumberTextBox.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(161, 310);
+            this.label5.Location = new System.Drawing.Point(1108, 79);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 19);
+            this.label5.Size = new System.Drawing.Size(78, 19);
             this.label5.TabIndex = 19;
-            this.label5.Text = "New movie ID";
+            this.label5.Text = "Movie ID";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(161, 424);
+            this.label7.Location = new System.Drawing.Point(738, 201);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(153, 19);
             this.label7.TabIndex = 20;
@@ -267,15 +261,15 @@
             // 
             this.AuditoriumAdressComboBox.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.AuditoriumAdressComboBox.FormattingEnabled = true;
-            this.AuditoriumAdressComboBox.Location = new System.Drawing.Point(161, 446);
+            this.AuditoriumAdressComboBox.Location = new System.Drawing.Point(738, 223);
             this.AuditoriumAdressComboBox.Name = "AuditoriumAdressComboBox";
-            this.AuditoriumAdressComboBox.Size = new System.Drawing.Size(364, 28);
+            this.AuditoriumAdressComboBox.Size = new System.Drawing.Size(448, 28);
             this.AuditoriumAdressComboBox.TabIndex = 21;
             this.AuditoriumAdressComboBox.Text = "Choose adress...";
             // 
             // NewMovieIdTextBox
             // 
-            this.NewMovieIdTextBox.Location = new System.Drawing.Point(161, 333);
+            this.NewMovieIdTextBox.Location = new System.Drawing.Point(738, 71);
             this.NewMovieIdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.NewMovieIdTextBox.Name = "NewMovieIdTextBox";
             this.NewMovieIdTextBox.ReadOnly = true;
@@ -286,15 +280,15 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(161, 369);
+            this.label8.Location = new System.Drawing.Point(738, 131);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(143, 19);
+            this.label8.Size = new System.Drawing.Size(252, 19);
             this.label8.TabIndex = 23;
-            this.label8.Text = "Whrite city name:";
+            this.label8.Text = "Whrite city name (Ex. Klaipeda):";
             // 
             // CityNameTextBox
             // 
-            this.CityNameTextBox.Location = new System.Drawing.Point(161, 393);
+            this.CityNameTextBox.Location = new System.Drawing.Point(738, 155);
             this.CityNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CityNameTextBox.Name = "CityNameTextBox";
             this.CityNameTextBox.Size = new System.Drawing.Size(185, 27);
@@ -304,10 +298,10 @@
             // 
             this.SearchAuditoriumAdressButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.SearchAuditoriumAdressButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SearchAuditoriumAdressButton.Location = new System.Drawing.Point(352, 369);
+            this.SearchAuditoriumAdressButton.Location = new System.Drawing.Point(955, 154);
             this.SearchAuditoriumAdressButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SearchAuditoriumAdressButton.Name = "SearchAuditoriumAdressButton";
-            this.SearchAuditoriumAdressButton.Size = new System.Drawing.Size(173, 67);
+            this.SearchAuditoriumAdressButton.Size = new System.Drawing.Size(231, 28);
             this.SearchAuditoriumAdressButton.TabIndex = 25;
             this.SearchAuditoriumAdressButton.Text = "Search auditorium adress";
             this.SearchAuditoriumAdressButton.UseVisualStyleBackColor = false;
@@ -317,10 +311,10 @@
             // 
             this.AddNewAuditorium.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddNewAuditorium.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddNewAuditorium.Location = new System.Drawing.Point(589, 499);
+            this.AddNewAuditorium.Location = new System.Drawing.Point(161, 547);
             this.AddNewAuditorium.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewAuditorium.Name = "AddNewAuditorium";
-            this.AddNewAuditorium.Size = new System.Drawing.Size(301, 40);
+            this.AddNewAuditorium.Size = new System.Drawing.Size(364, 40);
             this.AddNewAuditorium.TabIndex = 26;
             this.AddNewAuditorium.Text = "Add new auditorium";
             this.AddNewAuditorium.UseVisualStyleBackColor = false;
@@ -330,7 +324,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(579, 349);
+            this.label9.Location = new System.Drawing.Point(164, 428);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(163, 19);
             this.label9.TabIndex = 27;
@@ -338,7 +332,7 @@
             // 
             // AuditoriumNumberBox
             // 
-            this.AuditoriumNumberBox.Location = new System.Drawing.Point(748, 341);
+            this.AuditoriumNumberBox.Location = new System.Drawing.Point(333, 424);
             this.AuditoriumNumberBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumNumberBox.Name = "AuditoriumNumberBox";
             this.AuditoriumNumberBox.Size = new System.Drawing.Size(55, 27);
@@ -348,7 +342,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(579, 213);
+            this.label10.Location = new System.Drawing.Point(164, 305);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(320, 19);
             this.label10.TabIndex = 29;
@@ -356,17 +350,17 @@
             // 
             // AuditoriumOwnerTextBox
             // 
-            this.AuditoriumOwnerTextBox.Location = new System.Drawing.Point(579, 236);
+            this.AuditoriumOwnerTextBox.Location = new System.Drawing.Point(165, 328);
             this.AuditoriumOwnerTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumOwnerTextBox.Name = "AuditoriumOwnerTextBox";
-            this.AuditoriumOwnerTextBox.Size = new System.Drawing.Size(330, 27);
+            this.AuditoriumOwnerTextBox.Size = new System.Drawing.Size(360, 27);
             this.AuditoriumOwnerTextBox.TabIndex = 30;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(579, 279);
+            this.label11.Location = new System.Drawing.Point(164, 371);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(47, 19);
             this.label11.TabIndex = 31;
@@ -374,17 +368,17 @@
             // 
             // CityTextBox
             // 
-            this.CityTextBox.Location = new System.Drawing.Point(632, 271);
+            this.CityTextBox.Location = new System.Drawing.Point(218, 363);
             this.CityTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(277, 27);
+            this.CityTextBox.Size = new System.Drawing.Size(307, 27);
             this.CityTextBox.TabIndex = 32;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(578, 314);
+            this.label12.Location = new System.Drawing.Point(164, 397);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(153, 19);
             this.label12.TabIndex = 33;
@@ -392,17 +386,17 @@
             // 
             // AuditoriumAdressTextBox
             // 
-            this.AuditoriumAdressTextBox.Location = new System.Drawing.Point(737, 306);
+            this.AuditoriumAdressTextBox.Location = new System.Drawing.Point(323, 393);
             this.AuditoriumAdressTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumAdressTextBox.Name = "AuditoriumAdressTextBox";
-            this.AuditoriumAdressTextBox.Size = new System.Drawing.Size(172, 27);
+            this.AuditoriumAdressTextBox.Size = new System.Drawing.Size(202, 27);
             this.AuditoriumAdressTextBox.TabIndex = 34;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(578, 384);
+            this.label13.Location = new System.Drawing.Point(161, 463);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(190, 19);
             this.label13.TabIndex = 35;
@@ -410,7 +404,7 @@
             // 
             // AuditoriumPlaceCountTextBox
             // 
-            this.AuditoriumPlaceCountTextBox.Location = new System.Drawing.Point(774, 376);
+            this.AuditoriumPlaceCountTextBox.Location = new System.Drawing.Point(355, 459);
             this.AuditoriumPlaceCountTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumPlaceCountTextBox.Name = "AuditoriumPlaceCountTextBox";
             this.AuditoriumPlaceCountTextBox.Size = new System.Drawing.Size(55, 27);
@@ -420,7 +414,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(578, 419);
+            this.label14.Location = new System.Drawing.Point(161, 491);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(188, 19);
             this.label14.TabIndex = 37;
@@ -428,7 +422,7 @@
             // 
             // AuditoriumRowsCountTextBox
             // 
-            this.AuditoriumRowsCountTextBox.Location = new System.Drawing.Point(772, 411);
+            this.AuditoriumRowsCountTextBox.Location = new System.Drawing.Point(355, 491);
             this.AuditoriumRowsCountTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumRowsCountTextBox.Name = "AuditoriumRowsCountTextBox";
             this.AuditoriumRowsCountTextBox.Size = new System.Drawing.Size(55, 27);
@@ -438,7 +432,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(578, 455);
+            this.label15.Location = new System.Drawing.Point(160, 520);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(270, 19);
             this.label15.TabIndex = 39;
@@ -446,7 +440,7 @@
             // 
             // AuditoriumSeatsInRowCountTextBox
             // 
-            this.AuditoriumSeatsInRowCountTextBox.Location = new System.Drawing.Point(854, 447);
+            this.AuditoriumSeatsInRowCountTextBox.Location = new System.Drawing.Point(436, 512);
             this.AuditoriumSeatsInRowCountTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AuditoriumSeatsInRowCountTextBox.Name = "AuditoriumSeatsInRowCountTextBox";
             this.AuditoriumSeatsInRowCountTextBox.Size = new System.Drawing.Size(55, 27);
@@ -456,20 +450,41 @@
             // 
             this.AddNewMovieIdToAuditoriumDataBaseButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddNewMovieIdToAuditoriumDataBaseButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddNewMovieIdToAuditoriumDataBaseButton.Location = new System.Drawing.Point(161, 499);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Location = new System.Drawing.Point(738, 258);
             this.AddNewMovieIdToAuditoriumDataBaseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewMovieIdToAuditoriumDataBaseButton.Name = "AddNewMovieIdToAuditoriumDataBaseButton";
-            this.AddNewMovieIdToAuditoriumDataBaseButton.Size = new System.Drawing.Size(364, 40);
+            this.AddNewMovieIdToAuditoriumDataBaseButton.Size = new System.Drawing.Size(448, 40);
             this.AddNewMovieIdToAuditoriumDataBaseButton.TabIndex = 41;
             this.AddNewMovieIdToAuditoriumDataBaseButton.Text = "Add new movie to auditorium database";
             this.AddNewMovieIdToAuditoriumDataBaseButton.UseVisualStyleBackColor = false;
             this.AddNewMovieIdToAuditoriumDataBaseButton.Click += new System.EventHandler(this.AddNewMovieIdToAuditoriumDataBaseButton_Click);
+            // 
+            // AllMovieListComboBox
+            // 
+            this.AllMovieListComboBox.FormattingEnabled = true;
+            this.AllMovieListComboBox.Location = new System.Drawing.Point(738, 36);
+            this.AllMovieListComboBox.Name = "AllMovieListComboBox";
+            this.AllMovieListComboBox.Size = new System.Drawing.Size(448, 28);
+            this.AllMovieListComboBox.TabIndex = 42;
+            this.AllMovieListComboBox.SelectedIndexChanged += new System.EventHandler(this.AllMovieListComboBox_SelectedIndexChanged);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.Location = new System.Drawing.Point(738, 13);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(91, 19);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Movie list:";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 600);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.AllMovieListComboBox);
             this.Controls.Add(this.AddNewMovieIdToAuditoriumDataBaseButton);
             this.Controls.Add(this.AuditoriumSeatsInRowCountTextBox);
             this.Controls.Add(this.label15);
@@ -493,7 +508,6 @@
             this.Controls.Add(this.AuditoriumAdressComboBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.AuditoriumNumberTextBox);
             this.Controls.Add(this.GenerateReportButton);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
@@ -536,7 +550,6 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Button GenerateReportButton;
-        private System.Windows.Forms.TextBox AuditoriumNumberTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox AuditoriumAdressComboBox;
@@ -560,5 +573,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox AuditoriumSeatsInRowCountTextBox;
         private System.Windows.Forms.Button AddNewMovieIdToAuditoriumDataBaseButton;
+        private System.Windows.Forms.ComboBox AllMovieListComboBox;
+        private System.Windows.Forms.Label label16;
     }
 }

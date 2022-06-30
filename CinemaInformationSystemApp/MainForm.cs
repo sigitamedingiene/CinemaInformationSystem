@@ -8,12 +8,23 @@ using CinemaInformationSystemRepository.Entities;
 namespace CinemaInformationSystemApp
 {
     public partial class MainForm : Form
-    {   CinemaDbContext context = new CinemaDbContext();
+    {
+        CinemaDbContext cinemaDbContext = new CinemaDbContext();
         AddNewDataToDb addNewDataToDb = new AddNewDataToDb();
-        GetDataFromDbToList getDataFromDbToList = new GetDataFromDbToList();
+        GetDataFromDb getDataFromDb = new GetDataFromDb();
+        UpdateDataBase update = new UpdateDataBase();
         public MainForm()
         {
             InitializeComponent();
+            AddAllMovesToList();
+        }
+        private void AddAllMovesToList()
+        {
+            List<Movie> movies = getDataFromDb.GetAllMovies();
+            for (int i = 0; i < movies.Count; i++)
+            {
+                AllMovieListComboBox.Items.Add($"{movies[i].Name}, rodo {movies[i].ShowDate}, {movies[i].ShowTime}");
+            }
         }
         private void AddNewMovieButton_Click(object sender, EventArgs e)
         {
@@ -32,15 +43,23 @@ namespace CinemaInformationSystemApp
         {
             _ = new List<Auditorium>();
             string cityName = CityNameTextBox.Text;
-            List<Auditorium> auditoriumAdresses = getDataFromDbToList.GetAllAuditoriumAdressListByCity(cityName);
+            List<Auditorium> auditoriumAdresses = getDataFromDb.GetAllAuditoriumAdressListByCity(cityName);
             for (int i = 0; i < auditoriumAdresses.Count; i++)
             {
                 AuditoriumAdressComboBox.Items.Add($"{auditoriumAdresses[i].Adress}, auditorium number {auditoriumAdresses[i].Number}");
             }
         }
+        private void AllMovieListComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Movie> movies = getDataFromDb.GetAllMovies();
+            for (int i = 0; i < movies.Count; i++)
+            {
+                NewMovieIdTextBox.Text = movies[i].Id.ToString();
+            }
+        }
         private void AddNewMovieIdToAuditoriumDataBaseButton_Click(object sender, EventArgs e)
         {
-
+            var movieId = NewMovieIdTextBox.Text;//nezinau kaip padaryti, kad is listo butu nuskaityta ir apdeitinta DB
         }
         private void AddNewAuditorium_Click(object sender, EventArgs e)
         {
@@ -58,10 +77,11 @@ namespace CinemaInformationSystemApp
         private void SellTicketButton_Click(object sender, EventArgs e)
         {
             SellTicketForm sellTicketForm = new();
+            sellTicketForm.ShowDialog();
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            //ataskaitu generavimas
         }
     }
 }
