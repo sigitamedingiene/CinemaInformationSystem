@@ -60,6 +60,13 @@ namespace CinemaInformationSystemBusiness.Services
                 .FirstOrDefault(movie => movie.Id == movieId);
             return movie;
         }
+        public List<Movie> GetAllMoviesByClientId(Guid clientId)
+        {
+            var movieList = _context.Clients
+                .FirstOrDefault(client => client.Id == clientId).WachedMovies
+                .ToList();
+            return movieList;
+        }
         public List<Client> AllClientsList()
         {
             return _context.Clients.ToList();

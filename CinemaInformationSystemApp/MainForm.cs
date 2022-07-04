@@ -25,7 +25,7 @@ namespace CinemaInformationSystemApp
             List<Movie> movies = _getDataFromDb.GetAllMovies();
             for (int i = 0; i < movies.Count; i++)
             {
-                AllMovieListComboBox.Items.Add($"{movies[i].Name}, rodo: {movies[i].ShowDate}, {movies[i].ShowTime}");
+                AllMovieListComboBox.Items.Add($"{movies[i].Name}, rodo: {movies[i].ShowDate}, {movies[i].ShowTime}, {movies[i].Id}");
             }
         }
         private void AddAllAuditoriumToList()
@@ -157,7 +157,15 @@ namespace CinemaInformationSystemApp
                 }
             }else if (checkBox3.Checked)
             {
-
+                List<Client> allClients = _getDataFromDb.AllClientsList();
+                for (int i = 0; i < allClients.Count; i++)
+                {
+                    List<Movie> movieListByClient = _getDataFromDb.GetAllMoviesByClientId(allClients[i].Id);
+                    for (int j = 0; j < movieListByClient.Count; j++)
+                    {
+                        ReportBox.Text = ($"Name: {movieListByClient[j].Name}, type: {movieListByClient[j].Type}, show time: {movieListByClient[i].ShowDate}, {movieListByClient[j].ShowTime}.\r\n");
+                    }
+                }
             }
             else
             {
