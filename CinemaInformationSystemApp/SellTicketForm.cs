@@ -11,10 +11,12 @@ namespace CinemaInformationSystemApp
     public partial class SellTicketForm : Form
     {   
         private GetDataFromDb _getDataFromDb;
+        private AddNewDataToDb _addNewDataToDb;
         private SellTicket _sellTicket;
-        public SellTicketForm(GetDataFromDb getDataFromDb, SellTicket sellTicket)
+        public SellTicketForm(GetDataFromDb getDataFromDb, AddNewDataToDb addNewDataToDb, SellTicket sellTicket)
         {
             _getDataFromDb = getDataFromDb;
+            _addNewDataToDb = addNewDataToDb;
             _sellTicket = sellTicket;
             InitializeComponent();
             AddAllMovesToList();
@@ -27,7 +29,7 @@ namespace CinemaInformationSystemApp
             List<Movie> movies = _getDataFromDb.GetAllMovies();
             for (int i = 0; i < movies.Count; i++)
             {
-                ChooseMovieComboBox.Items.Add($"{movies[i].Name}, rodo {movies[i].ShowDate}, {movies[i].ShowTime}");
+                ChooseMovieComboBox.Items.Add($"{movies[i].Name}, rodo {movies[i].ShowDate}, {movies[i].ShowTime}, {movies[i].Id}");
             }
         }
         private void AddAllAuditoriumToList()
@@ -97,11 +99,37 @@ namespace CinemaInformationSystemApp
         private void ChooseAuditoriumComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string auditoriumComboBox = ChooseAuditoriumComboBox.Text;
-            string[] auditoriumCityAadressNumberArray = auditoriumComboBox.Split(", ");
-            for (int i = 0; i < auditoriumCityAadressNumberArray.Length; i++)
+            string[] auditoriumArray = auditoriumComboBox.Split(", ");
+            for (int i = 0; i < auditoriumArray.Length; i++)
             {
-                auditoriumIdBox.Text = auditoriumCityAadressNumberArray[3];
+                auditoriumIdBox.Text = auditoriumArray[3];
             }
         }
+        private void ChooseMovieComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string movieComboBox = ChooseMovieComboBox.Text;
+            string[] movieArray = movieComboBox.Split(", ");
+            for (int i = 0; i < movieArray.Length; i++)
+            {
+                MovieIdTextBox.Text = movieArray[3];
+            }
+        }
+        private void AddNewClient_Click(object sender, EventArgs e)
+        {
+            string name = NameTextBox.Text;
+            string surname = SurnameTextBox.Text;
+            var age = AgeTextBox.Text;
+            string email = EmailTextBox.Text;
+            Guid movieId = Guid.Parse(MovieIdTextBox.Text);
+            var movie = _getDataFromDb.GetMovieById(movieId);
+            _addNewDataToDb.AddNewClient(name, surname, Convert.ToDecimal(age), email, movie);
+            NameTextBox.Clear();
+            SurnameTextBox.Clear();
+            AgeTextBox.Clear();
+            EmailTextBox.Clear();
+            MessageBox.Show("New Client added successfully");
+        }
+
+        
     }
 }

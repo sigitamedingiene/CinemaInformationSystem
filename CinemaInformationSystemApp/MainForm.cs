@@ -13,7 +13,7 @@ namespace CinemaInformationSystemApp
         public static AddNewDataToDb _addNewDataToDb = new(_context);
         public static GetDataFromDb _getDataFromDb = new(_context);
         public static SellTicket _sellTicket = new SellTicket();
-        public static SellTicketForm _sellTicketForm = new(_getDataFromDb, _sellTicket);
+        public static SellTicketForm _sellTicketForm = new(_getDataFromDb, _addNewDataToDb, _sellTicket);
         private Auditorium auditorium;
 
         public MainForm(Auditorium auditorium)

@@ -45,5 +45,11 @@ namespace CinemaInformationSystemBusiness.Services
         {
             return _context.Movies.ToList();
         }
+        public Movie GetMovieById(Guid movieId)
+        {
+            var movie = _context.Movies
+                .FirstOrDefault(movie => movie.Id == movieId);
+            return movie;
+        }
     }
 }
