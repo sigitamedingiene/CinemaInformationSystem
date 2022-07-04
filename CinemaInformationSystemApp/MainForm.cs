@@ -32,7 +32,7 @@ namespace CinemaInformationSystemApp
             List<Movie> movies = _getDataFromDb.GetAllMovies();
             for (int i = 0; i < movies.Count; i++)
             {
-                AllMovieListComboBox.Items.Add($"{movies[i].Name}, rodo {movies[i].ShowDate}, {movies[i].ShowTime}");
+                AllMovieListComboBox.Items.Add($"{movies[i].Name}, rodo: {movies[i].ShowDate}, {movies[i].ShowTime}");
             }
         }
         private void AddAllAuditoriumToList()
@@ -40,7 +40,7 @@ namespace CinemaInformationSystemApp
             List<Auditorium> auditorium = _getDataFromDb.GetAllAuditorium();
             for (int i = 0; i < auditorium.Count; i++)
             {
-                AuditoriumListComboBox.Items.Add($"{auditorium[i].City}, {auditorium[i].Adress}, {auditorium[i].Number}");
+                AuditoriumListComboBox.Items.Add($"{auditorium[i].City}, {auditorium[i].Adress}, {auditorium[i].Number}, {auditorium[i].Id}");
             }
         }
         private void AddNewAuditorium_Click(object sender, EventArgs e)

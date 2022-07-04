@@ -32,7 +32,7 @@ namespace CinemaInformationSystemApp
             List<Auditorium> auditorium = _getDataFromDb.GetAllAuditorium();
             for (int i = 0; i < auditorium.Count; i++)
             {
-                ChooseAuditoriumComboBox.Items.Add($"{auditorium[i].City}, rodo {auditorium[i].Adress}, {auditorium[i].Number}");
+                ChooseAuditoriumComboBox.Items.Add($"{auditorium[i].City}, {auditorium[i].Adress}, {auditorium[i].Number}, {auditorium[i].Id}");
             }
         }
         private void DrawCinemaSeats(Graphics g, int rowSeatsCount, int rowsCount)
