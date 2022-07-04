@@ -135,7 +135,34 @@ namespace CinemaInformationSystemApp
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //ataskaitu generavimas
+           
+        }
+
+        private void GenerateReportButton_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            { 
+                if (NewMovieIdTextBox.Text == "")
+                {
+                    MessageBox.Show("Please choose movie, from Movie List");
+                }
+                else
+                {
+                    var movieId = Guid.Parse(NewMovieIdTextBox.Text);
+                    List <Auditorium> auditoriumListByMovie = _getDataFromDb.GetAllAuditoriumByMovie(movieId).ToList();
+                    for (int i = 0; i < auditoriumListByMovie.Count; i++)
+                    {
+                        ReportBox.Text = ($"City: {auditoriumListByMovie[i].City}, adress: {auditoriumListByMovie[i].Adress}, auditorium number: {auditoriumListByMovie[i].Number}, capacity: {auditoriumListByMovie[i].PlaceCount} seats.");
+                    }
+                }
+            }
+            else if (checkBox2.Checked)
+            {
+
+            }else if (checkBox3.Checked)
+            {
+
+            }
         }
     }
 }

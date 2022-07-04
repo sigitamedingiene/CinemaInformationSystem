@@ -30,13 +30,12 @@ namespace CinemaInformationSystemBusiness.Services
         {
             return _context.Auditoriums.ToList();
         }
-        public Auditorium GetAuditoriumById(Guid Id)
+        public List<Auditorium> GetAllAuditoriumByMovie(Guid selectedMovieId)
         {
-            return _context.Auditoriums.Find(Id);
-        }
-        public Movie GetMovieById(Guid Id)
-        {
-            return _context.Movies.Find(Id);
+            var auditoriumList = _context.Movies
+                .FirstOrDefault(movie => movie.Id == selectedMovieId).Auditorium
+                .ToList();
+            return auditoriumList;
         }
         public List<Movie> GetAllMovies()
         {
