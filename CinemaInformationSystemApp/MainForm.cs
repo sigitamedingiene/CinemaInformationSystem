@@ -57,13 +57,8 @@ namespace CinemaInformationSystemApp
                 NewMovieIdTextBox.Text = movies[i].Id.ToString();
             }
         }
-        private void AddNewMovieIdToAuditoriumDataBaseButton_Click(object sender, EventArgs e)
-        {
-            var movieId = NewMovieIdTextBox.Text;//nezinau kaip padaryti, kad is listo butu nuskaityta ir apdeitinta DB
-        }
         private void AddNewAuditorium_Click(object sender, EventArgs e)
         {
-            var Id = Guid.NewGuid();
             int number = Convert.ToInt32(AuditoriumNumberBox.Text);
             string owner = AuditoriumOwnerTextBox.Text;
             string city = CityTextBox.Text;
@@ -72,6 +67,11 @@ namespace CinemaInformationSystemApp
             int rowsCount = Convert.ToInt32(AuditoriumRowsCountTextBox.Text);
             int rowSeatCount = Convert.ToInt32(AuditoriumSeatsInRowCountTextBox.Text);
             addNewDataToDb.AddNewAuditorium(number, owner, city, adress, placeCount, rowsCount, rowSeatCount);
+
+        }
+        private void AddNewMovieIdToAuditoriumDataBaseButton_Click(object sender, EventArgs e)
+        {
+            var movieId = Guid.Parse(NewMovieIdTextBox.Text);
 
         }
         private void SellTicketButton_Click(object sender, EventArgs e)

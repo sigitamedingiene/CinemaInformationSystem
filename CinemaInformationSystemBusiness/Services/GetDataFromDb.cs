@@ -8,18 +8,22 @@ namespace CinemaInformationSystemBusiness.Services
 {
     public class GetDataFromDb
     {   
-        CinemaDbContext cinemaDbContext = new CinemaDbContext();
+        private CinemaDbContext _context;
+        public GetDataFromDb(CinemaDbContext context)
+        {
+            _context = context;
+        }
         public List<Auditorium> GetAllAuditoriumAdressListByCity(string City)
         {
-            return cinemaDbContext.Auditoriums.Where(auditoriums => auditoriums.City == City).ToList();
+            return _context.Auditoriums.Where(auditoriums => auditoriums.City == City).ToList();
         }
         public List<Movie> GetAllMovies()
         {
-            return cinemaDbContext.Movies.ToList();
+            return _context.Movies.ToList();
         }
         public List<Auditorium> GetAllAuditorium()
         {
-            return cinemaDbContext.Auditoriums.ToList();
+            return _context.Auditoriums.ToList();
         }
     }
 }
