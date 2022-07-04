@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using CinemaInformationSystemBusiness.Services;
-using CinemaInformationSystemRepository.DBContext;
 using CinemaInformationSystemRepository.Entities;
 
 namespace CinemaInformationSystemApp
 {
     public partial class SellTicketForm : Form
     {   
-        GetDataFromDb getDataFromDb = new();
-        SellTicket sellTicket = new();
-        public SellTicketForm()
+        private GetDataFromDb _getDataFromDb;
+        private SellTicket _sellTicket;
+        public SellTicketForm(GetDataFromDb getDataFromDb, SellTicket sellTicket)
         {
+            _getDataFromDb = getDataFromDb;
+            _sellTicket = sellTicket;
             InitializeComponent();
             AddAllMovesToList();
             AddAllAuditoriumToList();
         }
         private void AddAllMovesToList()
         {
-            List<Movie> movies = getDataFromDb.GetAllMovies();
+            List<Movie> movies = _getDataFromDb.GetAllMovies();
             for (int i = 0; i < movies.Count; i++)
             {
                 ChooseMovieComboBox.Items.Add($"{movies[i].Name}, rodo {movies[i].ShowDate}, {movies[i].ShowTime}");
@@ -28,7 +29,7 @@ namespace CinemaInformationSystemApp
         }
         private void AddAllAuditoriumToList()
         {
-            List<Auditorium> auditorium = getDataFromDb.GetAllAuditorium();
+            List<Auditorium> auditorium = _getDataFromDb.GetAllAuditorium();
             for (int i = 0; i < auditorium.Count; i++)
             {
                 ChooseAuditoriumComboBox.Items.Add($"{auditorium[i].City}, rodo {auditorium[i].Adress}, {auditorium[i].Number}");
@@ -60,7 +61,7 @@ namespace CinemaInformationSystemApp
         {
             MovieInformationTextBox.AppendText(ChooseMovieComboBox.Text);
             MovieInformationTextBox.AppendText(ChooseAuditoriumComboBox.Text);
-            var price = sellTicket.CountPrice(Convert.ToDecimal(PriceComboBox.Text), Convert.ToDecimal(TicketCountComboBox.Text));
+            var price = _sellTicket.CountPrice(Convert.ToDecimal(PriceComboBox.Text), Convert.ToDecimal(TicketCountComboBox.Text));
             MovieInformationTextBox.AppendText($"Total price: {price}");
         }
     }
