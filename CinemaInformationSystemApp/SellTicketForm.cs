@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using CinemaInformationSystemBusiness.Services;
 using CinemaInformationSystemRepository.Entities;
@@ -122,7 +121,9 @@ namespace CinemaInformationSystemApp
             string email = EmailTextBox.Text;
             Guid movieId = Guid.Parse(MovieIdTextBox.Text);
             var movie = _getDataFromDb.GetMovieById(movieId);
-            _addNewDataToDb.AddNewClient(name, surname, Convert.ToDecimal(age), email, movie);
+            Guid auditoriumId = Guid.Parse(auditoriumIdBox.Text);
+            var auditorium = _getDataFromDb.GetAuditoriumByID(auditoriumId);
+            _addNewDataToDb.AddNewClient(name, surname, Convert.ToDecimal(age), email, movie, auditorium);
             NameTextBox.Clear();
             SurnameTextBox.Clear();
             AgeTextBox.Clear();

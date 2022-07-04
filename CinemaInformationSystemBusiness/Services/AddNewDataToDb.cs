@@ -17,11 +17,12 @@ namespace CinemaInformationSystemBusiness.Services
             _context.Add(newAuditorium);           
             _context.SaveChanges();
         }
-        public void AddNewClient(string name, string surName, decimal age, string email, Movie movie)
+        public void AddNewClient(string name, string surName, decimal age, string email, Movie movie, Auditorium auditorium)
         {
             Client newClient = new(name, surName, age, email);
             _context.Clients.Add(newClient);
             newClient.WachedMovies.Add(movie);
+            newClient.UsedAuditoriums.Add(auditorium);
             _context.SaveChanges();
         }
         public void AddNewMovie(string name, string type, string companyCreated, string showdate, string showTime, Auditorium auditorium)
