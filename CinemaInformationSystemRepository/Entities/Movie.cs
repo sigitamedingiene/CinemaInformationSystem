@@ -13,7 +13,6 @@ namespace CinemaInformationSystemRepository.Entities
         public string ShowDate { get; set; }
         public string ShowTime { get; set; }
         public List<Auditorium> Auditorium { get; set; }
-        public List<Client> Clients { get; set; }
         public Movie(string name, string type, string companyCreated, string showdate, string showTime)
         {
             Id = Guid.NewGuid();
@@ -23,7 +22,6 @@ namespace CinemaInformationSystemRepository.Entities
             ShowDate = showdate;
             ShowTime = showTime;
             Auditorium = new List<Auditorium>();
-            Clients = new List<Client>();
         }
         private Movie()
         {

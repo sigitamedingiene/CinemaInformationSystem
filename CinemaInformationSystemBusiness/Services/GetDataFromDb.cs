@@ -26,12 +26,19 @@ namespace CinemaInformationSystemBusiness.Services
         {
             return _context.Auditoriums.ToList();
         }
-        public List<Auditorium> GetAllAuditoriumByMovie(Guid selectedMovieId)
+        public List<Auditorium> GetAllAuditoriumByMovie(Guid movieId)
         {
             var auditoriumList = _context.Movies
-                .FirstOrDefault(movie => movie.Id == selectedMovieId).Auditorium
+                .FirstOrDefault(movie => movie.Id == movieId).Auditorium
                 .ToList();
             return auditoriumList;
+        }
+        public List<Auditorium> GetAllAuditoriumByClient(Guid clientId)
+        {
+            var auditoriumsList = _context.Clients
+                .FirstOrDefault(client => client.Id == clientId).UsedAuditoriums
+                .ToList();
+            return auditoriumsList;
         }
         public List<Auditorium> GetAuditoriumById(Guid auditoriumId)
         {
@@ -52,6 +59,10 @@ namespace CinemaInformationSystemBusiness.Services
             var movie = _context.Movies
                 .FirstOrDefault(movie => movie.Id == movieId);
             return movie;
+        }
+        public List<Client> AllClientsList()
+        {
+            return _context.Clients.ToList();
         }
     }
 }

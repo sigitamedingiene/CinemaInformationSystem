@@ -29,8 +29,6 @@ namespace CinemaInformationSystemBusiness.Services
         {
             Movie newMovie = new(name, type, companyCreated, showdate, showTime);
             newMovie.Auditorium.Add(auditorium);
-           // Client newClient = new Client(_client.Name, _client.SurName, _client.Age, _client.Email);
-           // newMovie.Clients.Add(newClient);
             _context.Add(newMovie);
             _context.SaveChanges();
         }

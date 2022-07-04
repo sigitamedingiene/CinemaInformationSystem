@@ -146,10 +146,22 @@ namespace CinemaInformationSystemApp
             }
             else if (checkBox2.Checked)
             {
-
+                List<Client> allClients = _getDataFromDb.AllClientsList();
+                for (int i = 0; i < allClients.Count; i++)
+                {
+                    List<Auditorium> auditoriumListByClient = _getDataFromDb.GetAllAuditoriumByClient(allClients[i].Id);
+                    for (int j = 0; j < auditoriumListByClient.Count; j++)
+                    {
+                        ReportBox.Text = ($"City: {auditoriumListByClient[j].City}, adress: {auditoriumListByClient[j].Adress}, auditorium number: {auditoriumListByClient[i].Number}, capacity: {auditoriumListByClient[i].PlaceCount} seats.\r\n");
+                    }
+                }
             }else if (checkBox3.Checked)
             {
 
+            }
+            else
+            {
+                MessageBox.Show("Please choose report type");
             }
         }
     }

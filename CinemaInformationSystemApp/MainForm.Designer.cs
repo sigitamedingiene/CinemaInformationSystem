@@ -180,7 +180,7 @@
             // 
             this.AddNewMovieButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.AddNewMovieButton.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddNewMovieButton.Location = new System.Drawing.Point(157, 549);
+            this.AddNewMovieButton.Location = new System.Drawing.Point(155, 551);
             this.AddNewMovieButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddNewMovieButton.Name = "AddNewMovieButton";
             this.AddNewMovieButton.Size = new System.Drawing.Size(475, 40);
