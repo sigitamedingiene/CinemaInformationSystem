@@ -75,6 +75,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.ReportBox = new System.Windows.Forms.TextBox();
             this.DownloadReportButton = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.AuditoriumIdBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // SellTicketButton
@@ -508,16 +510,16 @@
             // AuditoriumListComboBox
             // 
             this.AuditoriumListComboBox.FormattingEnabled = true;
-            this.AuditoriumListComboBox.Location = new System.Drawing.Point(157, 514);
+            this.AuditoriumListComboBox.Location = new System.Drawing.Point(318, 484);
             this.AuditoriumListComboBox.Name = "AuditoriumListComboBox";
-            this.AuditoriumListComboBox.Size = new System.Drawing.Size(475, 28);
+            this.AuditoriumListComboBox.Size = new System.Drawing.Size(312, 28);
             this.AuditoriumListComboBox.TabIndex = 46;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(157, 487);
+            this.label18.Location = new System.Drawing.Point(157, 493);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(157, 19);
             this.label18.TabIndex = 47;
@@ -546,11 +548,32 @@
             this.DownloadReportButton.Text = "Download report";
             this.DownloadReportButton.UseVisualStyleBackColor = false;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(157, 520);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 19);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "Auditorium ID";
+            // 
+            // AuditoriumIdBox
+            // 
+            this.AuditoriumIdBox.Location = new System.Drawing.Point(285, 516);
+            this.AuditoriumIdBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.AuditoriumIdBox.Name = "AuditoriumIdBox";
+            this.AuditoriumIdBox.ReadOnly = true;
+            this.AuditoriumIdBox.Size = new System.Drawing.Size(345, 27);
+            this.AuditoriumIdBox.TabIndex = 51;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 600);
+            this.Controls.Add(this.AuditoriumIdBox);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.DownloadReportButton);
             this.Controls.Add(this.ReportBox);
             this.Controls.Add(this.label18);
@@ -655,5 +678,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox ReportBox;
         private System.Windows.Forms.Button DownloadReportButton;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox AuditoriumIdBox;
     }
 }

@@ -22,10 +22,6 @@ namespace CinemaInformationSystemBusiness.Services
         {
             return _context.Auditoriums.Where(auditoriums => auditoriums.Adress == adress && auditoriums.Number == number).ToList();
         }
-        public List<Auditorium> GetAuditoriumData(string city, string adress, int number)
-        {
-            return _context.Auditoriums.Where(auditoriums => auditoriums.City == city && auditoriums.Adress == adress && auditoriums.Number == number).ToList();
-        }
         public List<Auditorium> GetAllAuditorium()
         {
             return _context.Auditoriums.ToList();

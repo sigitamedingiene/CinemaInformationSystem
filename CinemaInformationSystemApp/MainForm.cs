@@ -14,13 +14,6 @@ namespace CinemaInformationSystemApp
         public static GetDataFromDb _getDataFromDb = new(_context);
         public static SellTicket _sellTicket = new SellTicket();
         public static SellTicketForm _sellTicketForm = new(_getDataFromDb, _addNewDataToDb, _sellTicket);
-        private Auditorium auditorium;
-
-        public MainForm(Auditorium auditorium)
-        {
-            this.auditorium = auditorium;
-        }
-
         public MainForm()
         {
             InitializeComponent();
@@ -71,23 +64,13 @@ namespace CinemaInformationSystemApp
             var date = DatePickerBox.Value.Date.ToShortDateString();
             var time = TimePickerBox.Value.ToShortTimeString();
             string auditoriumComboBox = AuditoriumListComboBox.Text;
-            string[] auditoriumCityAadressNumberArray = auditoriumComboBox.Split(", ");
- 
-            for (int i = 0; i < auditoriumCityAadressNumberArray.Length; i++)
+            string[] auditoriumArray = auditoriumComboBox.Split(", ");
+            for (int i = 0; i < auditoriumArray.Length; i++)
             {
-                List<Auditorium> auditoriums = _getDataFromDb.GetAuditoriumData(auditoriumCityAadressNumberArray[0], auditoriumCityAadressNumberArray[1], Convert.ToInt32(auditoriumCityAadressNumberArray[2])).ToList();
-                for (int j = 0; j < auditoriums.Count; j++)
-                {
-                    int number = auditoriums[j].Number;
-                    string owner = auditoriums[j].Owner;
-                    string city = auditoriums[j].City;
-                    string adress = auditoriums[j].Adress;
-                    int placeCount = auditoriums[j].PlaceCount;
-                    int rowCount = auditoriums[j].RowsCount;
-                    int rowSeatsCount = auditoriums[j].RowSeatCount;
-                    auditorium = new(number, owner, city, adress, placeCount, rowCount, rowSeatsCount);
-                }
+                AuditoriumIdBox.Text = auditoriumArray[3];
             }
+            Guid auditoriumId = Guid.Parse(AuditoriumIdBox.Text);
+            var auditorium = _getDataFromDb.GetAuditoriumByID(auditoriumId);
             _addNewDataToDb.AddNewMovie(name, type, company, date, time, auditorium);
             MovieNameTextBox.Clear();
             MovieTypeTextBox.Clear();
