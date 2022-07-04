@@ -53,10 +53,15 @@ namespace CinemaInformationSystemApp
             int rowsCount = Convert.ToInt32(AuditoriumRowsCountTextBox.Text);
             int rowSeatCount = Convert.ToInt32(AuditoriumSeatsInRowCountTextBox.Text);
             _addNewDataToDb.AddNewAuditorium(number, owner, city, adress, placeCount, rowsCount, rowSeatCount);
-        }
-        private void RetrieveAuditorium()
-        {
-            
+            AuditoriumNumberBox.Clear();
+            AuditoriumOwnerTextBox.Clear();
+            CityTextBox.Clear();
+            AuditoriumAdressTextBox.Clear();
+            AuditoriumPlaceCountTextBox.Clear();
+            AuditoriumRowsCountTextBox.Clear();
+            AuditoriumSeatsInRowCountTextBox.Clear();
+            MessageBox.Show("Auditorium added succesfully");
+            AddAllAuditoriumToList();
         }
         private void AddNewMovieButton_Click(object sender, EventArgs e)
         {
@@ -66,11 +71,11 @@ namespace CinemaInformationSystemApp
             var date = DatePickerBox.Value.Date.ToShortDateString();
             var time = TimePickerBox.Value.ToShortTimeString();
             string auditoriumComboBox = AuditoriumListComboBox.Text;
-            string[] auditoriumCitAadressNumberArray = auditoriumComboBox.Split(", ");
+            string[] auditoriumCityAadressNumberArray = auditoriumComboBox.Split(", ");
  
-            for (int i = 0; i < auditoriumCitAadressNumberArray.Length; i++)
+            for (int i = 0; i < auditoriumCityAadressNumberArray.Length; i++)
             {
-                List<Auditorium> auditoriums = _getDataFromDb.GetAuditoriumData(auditoriumCitAadressNumberArray[0], auditoriumCitAadressNumberArray[1], Convert.ToInt32(auditoriumCitAadressNumberArray[2])).ToList();
+                List<Auditorium> auditoriums = _getDataFromDb.GetAuditoriumData(auditoriumCityAadressNumberArray[0], auditoriumCityAadressNumberArray[1], Convert.ToInt32(auditoriumCityAadressNumberArray[2])).ToList();
                 for (int j = 0; j < auditoriums.Count; j++)
                 {
                     int number = auditoriums[j].Number;

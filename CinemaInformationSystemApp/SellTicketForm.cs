@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using CinemaInformationSystemBusiness.Services;
 using CinemaInformationSystemRepository.Entities;
@@ -18,6 +19,8 @@ namespace CinemaInformationSystemApp
             InitializeComponent();
             AddAllMovesToList();
             AddAllAuditoriumToList();
+            AddNumberToList();
+            AddpriceToList();
         }
         private void AddAllMovesToList()
         {
@@ -33,6 +36,24 @@ namespace CinemaInformationSystemApp
             for (int i = 0; i < auditorium.Count; i++)
             {
                 ChooseAuditoriumComboBox.Items.Add($"{auditorium[i].City}, {auditorium[i].Adress}, {auditorium[i].Number}, {auditorium[i].Id}");
+            }
+        }
+        private void AddNumberToList()
+        {
+            for (int i = 1; i < 51; i++)
+            {
+                TicketCountComboBox.Items.Add(i);
+            }
+        }
+        private void AddpriceToList()
+        {
+            List<decimal> priceList = new();
+            priceList.Add(4.99m);
+            priceList.Add(8.99m);
+            priceList.Add(12.99m);
+            for (int i = 0; i < priceList.Count; i++)
+            {
+                PriceComboBox.Items.Add(priceList[i]);
             }
         }
         private void DrawCinemaSeats(Graphics g, int rowSeatsCount, int rowsCount)
@@ -54,15 +75,33 @@ namespace CinemaInformationSystemApp
             }
         }
         private void ChoosePlacesButton_Click(object sender, EventArgs e)
-        {
-            DrawCinemaSeats(CinemaSeatsPictureBox.CreateGraphics(), 10, 25);
+        {           
+            int row = Convert.ToInt32(RowCountTextBox.Text);
+            int seatsInRow = Convert.ToInt32(RowSeatsCountTextBox.Text);
+            DrawCinemaSeats(CinemaSeatsPictureBox.CreateGraphics(), row, seatsInRow);
         }
         private void ChooseMovieNextButton_Click(object sender, EventArgs e)
         {
-            MovieInformationTextBox.AppendText(ChooseMovieComboBox.Text);
+            MovieInformationTextBox.AppendText($"{ChooseMovieComboBox.Text}\r\n");
             MovieInformationTextBox.AppendText(ChooseAuditoriumComboBox.Text);
             var price = _sellTicket.CountPrice(Convert.ToDecimal(PriceComboBox.Text), Convert.ToDecimal(TicketCountComboBox.Text));
-            MovieInformationTextBox.AppendText($"Total price: {price}");
+            MovieInformationTextBox.AppendText($"\r\nTotal price: {price}");
+            Guid auditoriumId = Guid.Parse(auditoriumIdBox.Text);
+            List<Auditorium> auditoriums = _getDataFromDb.GetAuditoriumById(auditoriumId);
+            for (int j = 0; j < auditoriums.Count; j++)
+            {
+                RowCountTextBox.AppendText(auditoriums[j].RowsCount.ToString());
+                RowSeatsCountTextBox.AppendText(auditoriums[j].RowSeatCount.ToString());
+            }
+        }
+        private void ChooseAuditoriumComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string auditoriumComboBox = ChooseAuditoriumComboBox.Text;
+            string[] auditoriumCityAadressNumberArray = auditoriumComboBox.Split(", ");
+            for (int i = 0; i < auditoriumCityAadressNumberArray.Length; i++)
+            {
+                auditoriumIdBox.Text = auditoriumCityAadressNumberArray[3];
+            }
         }
     }
 }

@@ -37,6 +37,10 @@ namespace CinemaInformationSystemBusiness.Services
                 .ToList();
             return auditoriumList;
         }
+        public List<Auditorium> GetAuditoriumById(Guid auditoriumId)
+        {
+            return _context.Auditoriums.Where(auditoriums => auditoriums.Id == auditoriumId).ToList();
+        }
         public List<Movie> GetAllMovies()
         {
             return _context.Movies.ToList();
